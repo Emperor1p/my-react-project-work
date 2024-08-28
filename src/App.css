@@ -53,13 +53,14 @@
   margin-bottom: 20px;
 }
 
+
 .categories, .featured-products {
   margin-bottom: 70px;
 }
 
-.category-grid {
+.category-card {
   display: flex;
-  /* overflow: auto; */
+  overflow: hidden;
   
   gap: 20px;
   height: 230px;

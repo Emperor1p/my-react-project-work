@@ -46,10 +46,11 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,        
     autoplaySpeed: 3000, 
+    
   };
 
   return (
-    <div className='container'>
+    <div className='container' style={{overflow: 'hidden'}}>
       <header className='header'>
         <div className='hero-image'>
           <img src={myImage} alt='Hero' className=' container-fluid'/>
