@@ -87,9 +87,9 @@ const Home = () => {
 
       <section className='categories'>
         <h2>Shop by Category</h2>
-        <div className='category-grid'>
+        <div className='category-grid row'>
           {categories.map(category => (
-            <div key={category} className='category-card'>
+            <div key={category} className='category-card col-lg-3'>
               <Link to={`/product`} className='category-link'>
                 <img src={getCategoryImage(category)} alt={category} />
                 <h3>{category}</h3>

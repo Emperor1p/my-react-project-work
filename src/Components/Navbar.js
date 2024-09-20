@@ -1,5 +1,6 @@
 // NavBar.js
 import React from "react";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { TbAtomOff } from "react-icons/tb";
 import { Dropdown } from "react-bootstrap";
@@ -11,7 +12,6 @@ import {
   FaCartPlus,
   FaQuestionCircle,
   FaUser,
-  
   FaEnvelope,
   FaTag,
   FaBookmark,
@@ -20,11 +20,9 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useCart } from "./CartContext";
 
-
 function NavBar() {
   const { cartItems } = useCart();
 
- 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const navData = [
@@ -69,10 +67,9 @@ function NavBar() {
             ))}
           </ul>
 
-          
           <Dropdown className="ms-auto me-3">
             <Dropdown.Toggle variant="light" id="dropdown-basic">
-              <FaUser className="me-2" /> User Profile
+              <FaUser className="me-2" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -96,15 +93,18 @@ function NavBar() {
             </Dropdown.Menu>
           </Dropdown>
 
-          
-          <NavLink className="nav-link me-3 makered " to="/cart">
-            <FaCartPlus className="me-2" /> Cart{" "}
+          <NavLink className="nav-link me-3 makered" to="/cart">
+            <OverlayTrigger
+              placement="right"
+              overlay={<Tooltip>Hooray!</Tooltip>}
+            >
+              <FaCartPlus className="me-2" />
+            </OverlayTrigger>
             {totalItems > 0 && (
               <span className="badge bg-danger ms-2">{totalItems}</span>
             )}
           </NavLink>
 
-          
           <NavLink className="nav-link makered" to="/help">
             <FaQuestionCircle className="me-2" /> Help
           </NavLink>
